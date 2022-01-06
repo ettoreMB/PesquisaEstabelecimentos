@@ -1,0 +1,20 @@
+// {
+//   "type": "mssql",
+//   "host": "",
+//   "port": "number",
+//   "username": "",
+//   "password": "",
+//   "options": {
+//     "trustServerCertificate": true
+//   },
+//   "database": "",
+//   "migrations": [
+//     ""
+//   ],
+//   "entities": [
+//     ""
+//   ],
+//   "cli": {
+//     "migrationsDir": ""
+//   }
+// }

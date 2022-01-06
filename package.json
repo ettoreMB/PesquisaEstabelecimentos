@@ -1,0 +1,36 @@
+{
+  "name": "PesquisaEstabelecimentos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register --poll --inspect --transpile-only --ignore-watch node_modules --respawn ./src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "soap": "^0.43.0",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
+    "tsyringe": "^4.6.0",
+    "typeorm": "^0.2.41",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  }
+}
