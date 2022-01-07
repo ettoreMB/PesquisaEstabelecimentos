@@ -1,5 +1,5 @@
-import { ICreateEstabelecimentoDTO } from "modules/Estabelecimentos/dtos/ICreateEstabelecimento";
-import { Estabelecimento } from "modules/Estabelecimentos/infra/typeorm/entities/Estabelecimento";
+import { ICreateEstabelecimentoDTO } from "@modules/Estabelecimentos/dtos/ICreateEstabelecimento";
+import { Estabelecimento } from "@modules/Estabelecimentos/infra/typeorm/entities/Estabelecimento";
 
 class EstabelecimentosRepositoryInMemory {
   estabelecimentos: Estabelecimento[] = [];

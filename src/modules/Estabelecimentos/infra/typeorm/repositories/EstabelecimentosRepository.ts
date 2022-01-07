@@ -1,5 +1,5 @@
-import { ICreateEstabelecimentoDTO } from "modules/Estabelecimentos/dtos/ICreateEstabelecimento";
-import { IEstabelecimentoRepository } from "modules/Estabelecimentos/repositories/IEstabelecimentosRepository";
+import { ICreateEstabelecimentoDTO } from "@modules/Estabelecimentos/dtos/ICreateEstabelecimento";
+import { IEstabelecimentoRepository } from "@modules/Estabelecimentos/repositories/IEstabelecimentosRepository";
 import { getRepository, Repository } from "typeorm";
 import { Estabelecimento } from "../entities/Estabelecimento";
 

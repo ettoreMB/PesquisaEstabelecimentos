@@ -1,11 +1,9 @@
 import { inject, injectable } from "tsyringe";
 
-import { ICreateEstabelecimentoDTO, IEstabelecimentoSOADTO } from "modules/Estabelecimentos/dtos/ICreateEstabelecimento";
-import { EstabelecimentosRepository } from "modules/Estabelecimentos/infra/typeorm/repositories/EstabelecimentosRepository";
-import { soaSearch } from "../../../../shared/container/providers/SOAWebServices/soaSearch"
-import { AppError } from "shared/errors/AppError";
-import { EnderecosRepository } from "modules/Estabelecimentos/infra/typeorm/repositories/EnderecosRepository";
-import { ICreateEnderecoDTO } from "modules/Estabelecimentos/dtos/ICreateEndereco";
+import { ICreateEstabelecimentoDTO, IEstabelecimentoSOADTO } from "@modules/Estabelecimentos/dtos/ICreateEstabelecimento";
+import { EstabelecimentosRepository } from "@modules/Estabelecimentos/infra/typeorm/repositories/EstabelecimentosRepository";
+import { soaSearch } from "@shared/container/providers/SOAWebServices/soaSearch"
+import { AppError } from "@shared/errors/AppError";
 
 
 interface IEstabelecimento {
@@ -29,8 +27,6 @@ class SearchCNPJUseCase {
     @inject('EstabelecimentosRepository')
     private estabelecimentosRepository: EstabelecimentosRepository,
 
-    @inject('EnderecosRepository')
-    private enderecosRepository: EnderecosRepository,
   ) { }
 
   async execute(cnpj: string): Promise<any> {

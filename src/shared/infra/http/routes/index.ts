@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { SearchCNPJController } from "modules/Estabelecimentos/UseCases/SearchSoaCNPJ/SearchCNPJController";
-import { soaApi } from "shared/container/providers/SOAWebServices/soaApi";
+import { SearchCNPJController } from "@modules/Estabelecimentos/UseCases/SearchSoaCNPJ/SearchCNPJController";
+
 
 const router = Router();
 

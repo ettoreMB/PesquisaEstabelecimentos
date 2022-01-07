@@ -1,4 +1,4 @@
-import { app } from "./App"
+import { app } from "@shared/infra/http/app"
 
 
 const port = 5000
