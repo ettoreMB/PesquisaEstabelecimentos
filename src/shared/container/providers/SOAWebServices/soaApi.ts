@@ -8,5 +8,5 @@ const url_prod = '/restservices/producao/cdc/pessoajuridicanfe.ashx'
 
 export const soaApi = axios.create({
   method: 'POST',
-  baseURL: `${host}${url_desenv}`
+  baseURL: `${host}${url_prod}`
 });

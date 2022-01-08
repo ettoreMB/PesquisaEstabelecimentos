@@ -40,7 +40,9 @@ class SearchCNPJUseCase {
     //pesquisa Estabelecimento SOA
     const estabelecimentoSOA: IEstabelecimentoSOADTO = await soaSearch(cnpj);
 
-    if (estabelecimentoSOA.Transacao.CodigoStatus === 'G000M001') {
+    console.log(estabelecimentoSOA.Transacao.Status)
+
+    if (estabelecimentoSOA.Transacao.Status === true) {
       const newEstabelecimento: ICreateEstabelecimentoDTO =
       {
         cnpj: formatedCNPJ,
@@ -73,7 +75,7 @@ class SearchCNPJUseCase {
       return newEstabelecimento
     }
 
-    return new AppError(estabelecimentoSOA.Transacao.CodigoStatusDescricao)
+    throw new AppError('Estabelecimento Não encontrato na receita')
 
   }
 }
