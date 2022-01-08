@@ -33,7 +33,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
           source: "., !node_modules"
-          target: "app/PesquisasEstabelecimentos"
+          target: "app/PesquisaEstabelecimentos"
         
       - name: Update API
         uses: appleboy/ssh-action@master
@@ -43,6 +43,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
           script: |
-            cd ~/app/PesquisasEstabelecimentos
+            cd ~/app/PesquisaEstabelecimentos
             yarn
-            pm2 restart estabelecimentos
+            pm2 restart 1
