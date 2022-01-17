@@ -9,7 +9,13 @@ class EstabelecimentosRepository implements IEstabelecimentoRepository {
   constructor() {
     this.repository = getRepository(Estabelecimento)
   }
-  async find(cnpj: string): Promise<Estabelecimento> {
+
+  async getAll(): Promise<Estabelecimento[]> {
+    const estabelecimentos = await this.repository.find();
+
+    return estabelecimentos;
+  }
+  async findOne(cnpj: string): Promise<Estabelecimento> {
     const estabelecimento = await this.repository.findOne({ cnpj });
 
     return estabelecimento

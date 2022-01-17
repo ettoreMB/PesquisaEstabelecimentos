@@ -4,7 +4,9 @@ import { Estabelecimento } from "../infra/typeorm/entities/Estabelecimento";
 
 interface IEstabelecimentoRepository {
   create(data: ICreateEstabelecimentoDTO): Promise<void>;
-  find(cnpj: string): Promise<Estabelecimento>
+  findOne(cnpj: string): Promise<Estabelecimento>;
+  getAll(): Promise<Estabelecimento[]>;
+
 }
 
 export { IEstabelecimentoRepository }

@@ -1,23 +1,12 @@
 import { inject, injectable } from "tsyringe";
-
 import { ICreateEstabelecimentoDTO, IEstabelecimentoSOADTO } from "@modules/Estabelecimentos/dtos/ICreateEstabelecimento";
 import { EstabelecimentosRepository } from "@modules/Estabelecimentos/infra/typeorm/repositories/EstabelecimentosRepository";
-import { soaSearch } from "@shared/container/providers/SOAWebServices/soaSearch"
+import { soaSearch } from "@shared/container/providers/SOAWebServices"
 import { AppError } from "@shared/errors/AppError";
+import { IEstabelecimentoRepository } from "@modules/Estabelecimentos/repositories/IEstabelecimentosRepository";
 
-
-interface IEstabelecimento {
-  Documento: string;
-  RazaoSocial: string;
-  NomeFantasia: string;
-  DataFundacao: string;
-  MatrizFilial: string;
-  CodigoAtividadeEconomica: string;
-  CodigoAtividadeEconomicaDescricao: string;
-  CodigoNaturezaJuridica: string;
-  CodigoNaturezaJuridicaDescricao: string;
-  Capital: string;
-  Mensagem: string;
+interface IEstabelecimentoReq {
+  cnpj: string;
 }
 
 @injectable()
@@ -25,27 +14,25 @@ class SearchCNPJUseCase {
 
   constructor(
     @inject('EstabelecimentosRepository')
-    private estabelecimentosRepository: EstabelecimentosRepository,
+    private estabelecimentosRepository: IEstabelecimentoRepository,
 
   ) { }
 
-  async execute(cnpj: string): Promise<any> {
-    const formatedCNPJ = cnpj.replace(/\D+/g, "");
-    const estabelecimento = await this.estabelecimentosRepository.find(formatedCNPJ)
+  async execute({ cnpj }: IEstabelecimentoReq): Promise<any> {
+    const filteredCNPJ = cnpj.replace(/\D+/g, "")
+    const estabelecimento = await this.estabelecimentosRepository.findOne(filteredCNPJ)
 
     if (estabelecimento) {
       return estabelecimento
     }
 
     //pesquisa Estabelecimento SOA
-    const estabelecimentoSOA: IEstabelecimentoSOADTO = await soaSearch(cnpj);
-
-    console.log(estabelecimentoSOA.Transacao.Status)
+    const estabelecimentoSOA: IEstabelecimentoSOADTO = await soaSearch(filteredCNPJ);
 
     if (estabelecimentoSOA.Transacao.Status === true) {
       const newEstabelecimento: ICreateEstabelecimentoDTO =
       {
-        cnpj: formatedCNPJ,
+        cnpj: filteredCNPJ,
         razaoSocial: estabelecimentoSOA.RazaoSocial,
         nomeFantasia: estabelecimentoSOA.NomeFantasia,
         dataFundacao: estabelecimentoSOA.DataFundacao,

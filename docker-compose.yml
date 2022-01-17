@@ -1,19 +1,14 @@
-version: "3.2"
+version: "3.8"
 
 services:
-  database:
-    image: postgres
-    container_name: database_estabelecimentos
+  app:
+    build: .
+    container_name: estabelecimentos_api
     restart: always
     ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=123
-      - POSTGRES_DB=estabelecimentos
+      - "5000:5000"
     volumes:
-      - pgdata:/data/postgres
-
+      - .:/usr/app
 volumes:
   pgdata:
     driver: local
