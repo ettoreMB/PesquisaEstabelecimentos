@@ -10,7 +10,7 @@ const listAllEstabelecimentos = new ListAllEstabelecimentosController();
 
 estabelecimentosRoutes.post("/search", searchCNPJController.handle)
 
-estabelecimentosRoutes.use(ensureAuthenticated);
-estabelecimentosRoutes.get("/", ensureAuthenticated, listAllEstabelecimentos.handle)
+// estabelecimentosRoutes.use(ensureAuthenticated);
+estabelecimentosRoutes.get("/", listAllEstabelecimentos.handle)
 
 export { estabelecimentosRoutes }
