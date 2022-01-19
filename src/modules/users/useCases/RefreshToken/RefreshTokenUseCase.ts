@@ -10,6 +10,11 @@ interface IPayLoad {
   email: string;
 }
 
+interface ITokenResponse {
+  token: string;
+  refresh_token: string;
+}
+
 @injectable()
 class RefreshTokenUseCase {
   constructor(
@@ -18,7 +23,7 @@ class RefreshTokenUseCase {
     @inject('DayJsDateProvider')
     private dateProvide: IDateProvider
   ) { }
-  async execute(token: string) {
+  async execute(token: string): Promise<ITokenResponse> {
     const { email, sub } = verify(token, auth.secret_refresh_token) as IPayLoad;
     const user_id = sub;
 
@@ -26,8 +31,6 @@ class RefreshTokenUseCase {
       user_id,
       token
     );
-
-    console.log(sub)
 
     if (!userToken) {
       throw new AppError('Refresh Token do not exists')
@@ -37,7 +40,7 @@ class RefreshTokenUseCase {
 
     const refresh_token = sign({ email }, auth.secret_refresh_token, {
       subject: sub,
-      expiresIn: auth.expires_in_refreshToken
+      expiresIn: auth.expires_in_refresh_token
     });
 
     const expires_date = this.dateProvide.addDays(

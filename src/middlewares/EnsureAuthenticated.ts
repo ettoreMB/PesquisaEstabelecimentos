@@ -19,11 +19,11 @@ export async function ensureAuthenticated(req: Request, res: Response, next: Nex
   const [, token] = authHeader.split(" ")
 
   try {
-    const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
+    const { sub: user_id } = verify(
+      token, auth.secret_token
+    ) as IPayload;
 
-    req.user = {
-      id: user_id
-    }
+    req.user = user_id
     next();
 
 

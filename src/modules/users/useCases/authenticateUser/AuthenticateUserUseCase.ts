@@ -35,12 +35,12 @@ class AuthenticateUserUseCase {
     const user = await this.usersRepository.find(email);
 
     if (!user) {
-      throw new AppError('Email ou password incorreto');
+      throw new AppError('Email ou password incorreto', 401);
     }
 
     const passwordMatch = await compare(password, user.password);
     if (!passwordMatch) {
-      throw new AppError("Email or Password is Inconrrect");
+      throw new AppError("Email or Password is Inconrrect", 401);
     }
 
     const token = sign({}, auth.secret_token, {
@@ -50,7 +50,7 @@ class AuthenticateUserUseCase {
 
     const refresh_token = sign({ email }, auth.secret_refresh_token, {
       subject: user.id,
-      expiresIn: auth.expires_in_refreshToken
+      expiresIn: auth.expires_in_refresh_token
     })
 
     const refresh_token_expires_date = this.dateProvider.addDays(auth.expires_refresh_token_days)
