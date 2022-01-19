@@ -1,4 +1,4 @@
-import { AuthenticateUserController } from "@modules/users/useCases/authenticateUser/authenticateUserController";
+import { AuthenticateUserController } from "@modules/users/useCases/authenticateUser/AuthenticateUserController";
 import { RefreshTokenController } from "@modules/users/useCases/RefreshToken/RefreshTokenController";
 import { Router } from "express";
 

@@ -1,7 +1,7 @@
 import { ListAllEstabelecimentosController } from '@modules/Estabelecimentos/UseCases/ListAllEstabelecimentos/ListAllEstabelecimentosController';
 import { SearchCNPJController } from '@modules/Estabelecimentos/UseCases/SearchSoaCNPJ/SearchCNPJController';
 import { Router } from 'express';
-import { ensureAuthenticated } from 'middlewares/EnsureAuthenticated';
+import { ensureAuthenticated } from '../../../../middlewares/EnsureAuthenticated';
 
 const estabelecimentosRoutes = Router();
 
