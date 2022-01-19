@@ -1,12 +1,9 @@
 import axios from 'axios'
 
 
-const url = process.env.NODE_ENV === "development" || "test" ? '/restservices/test-drive/cdc/pessoajuridicanfe.ashx' : '/restservices/test-drive/cdc/pessoajuridicanfe.ashx'
-
-
 export const soaApi = axios.create({
   method: 'POST',
-  baseURL: `${process.env.SOA_HOST}${url}`
+  baseURL: `${process.env.SOA_HOST}${process.env.SOA_LINK}`
 });
 
 export async function soaSearch(cnpj: string): Promise<any> {
