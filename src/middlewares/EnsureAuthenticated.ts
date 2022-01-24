@@ -4,7 +4,6 @@ import { AppError } from "@shared/errors/AppError";
 import { verify } from 'jsonwebtoken'
 import auth from "@config/auth";
 
-
 interface IPayload {
   sub: string
 }
@@ -15,6 +14,7 @@ export async function ensureAuthenticated(req: Request, res: Response, next: Nex
   if (!authHeader) {
     throw new AppError('Token is missing');
   }
+
   const [, token] = authHeader.split(" ")
 
   try {
