@@ -1,20 +1,21 @@
-// {
-//   "type": "mssql",
-//   "host": "",
-//   "port": "number",
-//   "username": "",
-//   "password": "",
-//   "options": {
-//     "trustServerCertificate": true
-//   },
-//   "database": "",
-//   "migrations": [
-//     ""
-//   ],
-//   "entities": [
-//     ""
-//   ],
-//   "cli": {
-//     "migrationsDir": ""
-//   }
-// }
+{
+  "type": "postgres",
+  "host": "link",
+  "port": number,
+  "username": "username",
+  "password": "password",
+  "options": {
+    "trustServerCertificate": true
+  },
+  "database": "databse_name",
+  "$schema": "schemaname",
+  "migrations": [
+    ""
+  ],
+  "entities": [
+    "./dist/modules/**/infra/typeorm/entities/*.js"
+  ],
+  "cli": {
+    "migrationsDir": ""
+  }
+}
