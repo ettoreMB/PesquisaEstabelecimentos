@@ -7,7 +7,8 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "build": "babel src --extensions \".mjs,.ts\" --out-dir dist --copy-files",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
+    "start": "node dist/shared/infra/http/server.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.12",
