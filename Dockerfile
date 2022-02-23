@@ -7,7 +7,6 @@ ENV YARN_VERSION 1.22.17
 RUN yarn
 RUN yarn build
 COPY . . 
-RUN yarn build
 EXPOSE 5000
 
 CMD npm run start
