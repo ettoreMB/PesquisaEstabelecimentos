@@ -12,5 +12,5 @@ router.use('/estabelecimentos', estabelecimentosRoutes)
 router.use('/users', userRoutes);
 router.use('/authenticate', authenticateRoutes)
 
-
+const teste = 'teste'
 export { router }
