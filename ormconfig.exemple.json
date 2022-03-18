@@ -13,7 +13,7 @@
 //     ""
 //   ],
 //   "entities": [
-//     "./dist/modules/**/infra/typeorm/entities/*.js"
+//     "./src/modules/**/infra/typeorm/entities/*.ts"
 //   ],
 //   "cli": {
 //     "migrationsDir": ""
