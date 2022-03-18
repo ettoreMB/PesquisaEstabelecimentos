@@ -44,4 +44,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           script: |
             cd ~/app/PesquisaEstabelecimentos
-            docker-compose up -d --build
+            docker-compose up -d 

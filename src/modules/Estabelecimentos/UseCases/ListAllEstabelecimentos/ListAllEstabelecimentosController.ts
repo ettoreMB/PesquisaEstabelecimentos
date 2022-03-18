@@ -7,7 +7,7 @@ class ListAllEstabelecimentosController {
     const listAll = container.resolve(ListAllEstabelecimentosUseCase);
 
     const estabelecimentos = await listAll.execute();
-
+    console.log(`teste`)
     return res.status(200).json(estabelecimentos)
   }
 }
