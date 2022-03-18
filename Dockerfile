@@ -6,7 +6,7 @@ COPY package*.json ./
 ENV YARN_VERSION 1.22.17
 RUN yarn
 COPY . .
-RUN yarn build
+
 EXPOSE 5000
 
-CMD npm run start
+CMD npm run dev 
