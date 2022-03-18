@@ -33,7 +33,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
           source: "., !node_modules"
-          target: "app/PesquisaEstabelecimentos"
+          target: "app/chapeira_admin_back"
         
       - name: Update API
         uses: appleboy/ssh-action@master
@@ -44,5 +44,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           script: |
             cd ~/app/PesquisaEstabelecimentos
-            yarn
-            pm2 restart estabelecimentos
+            docker-compose up -d --build
